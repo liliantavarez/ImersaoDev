@@ -1,21 +1,34 @@
-numeroSecreto = parseInt(Math.random()*10)
-var tentativas =3
+var numeroSecreto = parseInt(Math.random() * 10)
+var tentativas = 0
+var palpiteJogador = "";
 
-while(tentativas>0){
-var chute = parseInt(prompt("Digite um numero de 0 a 10"))
-
-if (numeroSecreto==chute){
-  alert("ACERTOU!")  
-  break;
-}else if (chute>numeroSecreto){
-  prompt("Tente um numero menor")
-  tentativas=tentativas-1
-}else if(chute<numeroSecreto){
-  alert("Tente um numero maior")
-  tentativas=tentativas-1
-}
-}
-if (chute!=numeroSecreto){
-  alert("GAME OVER O numero secreto era: "+numeroSecreto)
+function capturarPalpite() {
+    palpiteJogador = document.getElementById('palpite').value;
+    return palpiteJogador
 }
 
+function jogar() {
+
+    var divResultado = document.getElementById("resultado")
+    var palpiteFinal = capturarPalpite()
+
+    console.log(palpiteFinal)
+    if (numeroSecreto == palpiteFinal) {
+        htmlResultado = '<p class="resultado-final">ACERTOU</p>'
+        document.getElementById('btnJogar').disabled = true
+    } else if (palpiteFinal > numeroSecreto) {
+        htmlResultado = '<p class="resultado-final">Tente um numero menor</p>'
+        tentativas++
+    } else {
+        htmlResultado = '<p class="resultado-final">Tente um numero maior</p>'
+        tentativas++
+    } if (palpiteFinal != numeroSecreto && tentativas == 3) {
+        htmlResultado = '<p class="resultado-final">GAME OVER</p>'
+        document.getElementById('btnJogar').disabled = true
+        alert("O numero secreto era: " + numeroSecreto)
+
+    }
+    divResultado.innerHTML = htmlResultado
+
+
+}

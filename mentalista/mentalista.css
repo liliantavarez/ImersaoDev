@@ -23,6 +23,14 @@ body {
     color: #ffffff;
     margin-top: 5px;
   }
+  .resultado-final {
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    padding: 1rem;
+    background-color: rgba(192, 176, 176, 0.226);
+}
   
   .page-logo {
     width: 200px;
