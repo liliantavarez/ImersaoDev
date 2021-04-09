@@ -18,15 +18,16 @@ function jogar() {
         document.getElementById('btnJogar').disabled = true
     } else if (palpiteFinal > numeroSecreto) {
         htmlResultado = '<p class="resultado-final">Tente um numero menor</p>'
+        document.getElementById('palpite').value=''
         tentativas++
     } else {
         htmlResultado = '<p class="resultado-final">Tente um numero maior</p>'
+        document.getElementById('palpite').value=''
         tentativas++
     } if (palpiteFinal != numeroSecreto && tentativas == 3) {
         htmlResultado = '<p class="resultado-final">GAME OVER</p>'
         document.getElementById('btnJogar').disabled = true
-        alert("O numero secreto era: " + numeroSecreto)
-
+        document.getElementById('palpite').value='O numero secreto era:'+ numeroSecreto
     }
     divResultado.innerHTML = htmlResultado
 
