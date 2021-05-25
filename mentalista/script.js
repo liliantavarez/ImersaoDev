@@ -30,6 +30,4 @@ function jogar() {
         document.getElementById('palpite').value='O numero secreto era:'+ numeroSecreto
     }
     divResultado.innerHTML = htmlResultado
-
-
 }
